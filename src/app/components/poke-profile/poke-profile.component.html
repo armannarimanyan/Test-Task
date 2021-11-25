@@ -1,0 +1,31 @@
+<section class="section">
+    <div class="header">
+        <div>
+            <span class="poke-page" [routerLink]="['']">List</span>
+        </div>
+    </div>
+    <div class="poke-data">
+        <span class="poke-name">{{pokeData?.name}}</span>
+        <div class="poke-icon">
+            <img class="icon" src={{pokeData?.sprites?.back_default}} alt="">
+        </div>
+        <div class="poke-detail">
+            <span>Weight: <span>{{pokeData?.weight}} g.</span></span>
+            <span>Height: <span>{{pokeData?.height}} cm</span></span>
+            <span>Base Experience: <span>{{pokeData?.base_experience}} xp</span></span>
+            <span>Order: <span>{{pokeData?.order}}</span></span>
+        </div>
+        <div class="poke-stats">
+            <span>Stats:</span>
+            <div class="stats-detail" *ngFor="let item of pokeData.stats">
+                <span>{{item?.stat?.name}}({{item?.base_stat}})</span>
+            </div>
+        </div>
+        <div class="poke-types">
+            <span>Types:</span>
+            <div class="types" *ngFor="let item of pokeData.types">
+                <span>{{item?.type?.name}}</span>
+            </div>
+        </div>
+    </div>
+</section>

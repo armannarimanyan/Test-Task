@@ -1,0 +1,25 @@
+<section class="section">
+    <div class="header">
+        <div>
+            <span class="poke-page">List</span>
+        </div>
+    </div>
+    <div class="poke-list">
+        <span class="title">Pokemons List</span>
+        <div class="search-section">
+            <select class="type" [formControl]="selectValue">
+                <option> Normal </option>
+                <option> Steel </option>
+                <option> Rock </option>
+                <option> Flying </option>
+            </select>
+            <button class="search-button" (click)="searchByType()">Search by Type</button>
+        </div>
+        <div class="poke-name-list">
+            <div *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+                <span class="poke-name" (click)="openPokeProfile(item.url)">{{item.name}}</span>
+            </div>
+        </div>
+        <ngb-pagination [collectionSize]="items.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+    </div>
+</section>
